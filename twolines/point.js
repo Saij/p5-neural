@@ -1,7 +1,7 @@
 function Point(lines) {
 	this.x = random(-1, 1);
 	this.y = random(-1, 1);
-	this.r = 10;
+	this.r = 15;
 	this.lineValues = [];
 	this.color = color(0);
 
@@ -22,5 +22,24 @@ function Point(lines) {
 		noStroke();
 		fill(this.color);
 		ellipse(mapX(this.x), mapY(this.y), this.r);
+	}
+
+	this.drawGuess = function(guess) {
+		let guessRight = true;
+		for (let i = 0; i < guess.length; i++) {
+			let onTop = guess[i] < 0.5 ? 0 : 1;
+			if (onTop != this.lineValues[i]) {
+				guessRight = false;
+			}
+		}
+
+		if (guessRight) {
+			fill(255);
+		} else {
+			fill(0);
+		}
+		ellipse(mapX(this.x), mapY(this.y), this.r / 2);
+
+		return guessRight;
 	}
 }
