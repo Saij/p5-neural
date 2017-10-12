@@ -1,6 +1,7 @@
 {
   "name": "p5-neural",
   "projects": [
-    "twolines"
+    "twolines",
+    "neural-racer"
   ]
 }
